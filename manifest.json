@@ -1,0 +1,95 @@
+{
+    "manifest_version":  2,
+    "name":  "Gidaeon\u0027s Galaktika",
+    "version":  "0.1.101",
+    "description":  "Adds a galactic audio waveform directly below YouTube videos.",
+    "icons":  {
+                  "16":  "assets/galaktika-16.png",
+                  "32":  "assets/galaktika-32.png",
+                  "48":  "assets/galaktika-48.png",
+                  "96":  "assets/galaktika-96.png",
+                  "128":  "assets/galaktika-128.png"
+              },
+    "web_accessible_resources":  [
+                                     "assets/galaktika-96.png",
+                                     "src/page-clipboard-hook.js",
+                                     "src/radiooooo-page-bridge.js",
+                                     "src/cratedigrs-page-bridge.js",
+                                     "src/sampleroulette-page-bridge.js"
+                                 ],
+    "permissions":  [
+                        "cookies",
+                        "https://*.youtube.com/*",
+                        "*://www.youtube.com/*",
+                        "*://m.youtube.com/*",
+                        "*://www.youtube-nocookie.com/*",
+                        "*://app.radiooooo.com/*",
+                        "*://cratedigrs.com/*",
+                        "*://www.cratedigrs.com/*",
+                        "*://sampleroulette.io/*",
+                        "*://www.sampleroulette.io/*",
+                        "*://samplette.io/*",
+                        "*://www.samplette.io/*",
+                        "https://radiooooo-track.b-cdn.net/*",
+                        "nativeMessaging",
+                        "storage"
+                    ],
+    "background":  {
+                       "scripts":  [
+                                       "src/background.js"
+                                   ]
+                   },
+    "content_scripts":  [
+                            {
+                                "matches":  [
+                                                "*://www.youtube.com/*",
+                                                "*://m.youtube.com/*",
+                                                "*://youtube.com/*",
+                                                "*://www.youtube-nocookie.com/embed/*",
+                                                "*://app.radiooooo.com/*",
+                                                "*://cratedigrs.com/*",
+                                                "*://www.cratedigrs.com/*",
+                                                "*://sampleroulette.io/*",
+                                                "*://www.sampleroulette.io/*",
+                                                "*://samplette.io/*",
+                                                "*://www.samplette.io/*"
+                                            ],
+                                "js":  [
+                                           "src/content.js"
+                                       ],
+                                "css":  [
+                                            "src/styles.css"
+                                        ],
+                                "run_at":  "document_start",
+                                "all_frames":  true
+                            },
+                            {
+                                "matches":  [
+                                                "*://samplette.io/*",
+                                                "*://www.samplette.io/*"
+                                            ],
+                                "js":  [
+                                           "src/site-url-bridge.js"
+                                       ],
+                                "run_at":  "document_start"
+                            }
+                        ],
+    "browser_action":  {
+                           "default_icon":  {
+                                                "16":  "assets/galaktika-16.png",
+                                                "32":  "assets/galaktika-32.png"
+                                            },
+                           "default_popup":  "popup/popup.html",
+                           "default_title":  "Gidaeon\u0027s Galaktika"
+                       },
+    "browser_specific_settings":  {
+                                      "gecko":  {
+                                                    "id":  "gidaeons-galaktika@gidae.local",
+                                                    "data_collection_permissions":  {
+                                                                                        "required":  [
+                                                                                                         "none"
+                                                                                                     ]
+                                                                                    }
+                                                }
+                                  }
+}

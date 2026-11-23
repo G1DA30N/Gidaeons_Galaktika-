@@ -1,0 +1,245 @@
+﻿:root {
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 18%, rgba(125, 211, 252, 0.55) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 24%, rgba(255, 255, 255, 0.75) 0 1px, transparent 2px),
+    radial-gradient(circle at 35% 82%, rgba(167, 139, 250, 0.6) 0 1px, transparent 2px),
+    linear-gradient(135deg, #070a15, #111b3c 48%, #321a50);
+  color: #f8fbff;
+  margin: 0;
+  min-width: 280px;
+  padding: 10px;
+}
+
+header {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.brand {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+}
+
+img {
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
+}
+
+h1 {
+  font-size: 15px;
+  line-height: 1.1;
+  margin: 0 0 4px;
+}
+
+p {
+  color: #dbeafe;
+  font-size: 12px;
+  margin: 0;
+}
+
+.status-row {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+}
+
+.status-light {
+  background: #facc15;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.7);
+  flex: 0 0 auto;
+  height: 8px;
+  width: 8px;
+}
+
+.status-light.status-running {
+  background: #34d399;
+  box-shadow: 0 0 9px rgba(52, 211, 153, 0.9);
+}
+
+.status-light.status-stopped {
+  background: #fb7185;
+  box-shadow: 0 0 9px rgba(251, 113, 133, 0.72);
+}
+
+.status-light.status-checking {
+  animation: status-pulse 850ms ease-in-out infinite alternate;
+}
+
+@keyframes status-pulse {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+main {
+  display: block;
+}
+
+.power-control {
+  align-items: center;
+  background: rgba(10, 22, 42, 0.62);
+  border: 1px solid rgba(147, 197, 253, 0.42);
+  border-radius: 5px;
+  display: flex;
+  font-size: 13px;
+  font-weight: 700;
+  justify-content: space-between;
+  min-height: 34px;
+  padding: 0 10px;
+}
+
+.switch {
+  display: inline-flex;
+  height: 20px;
+  position: relative;
+  width: 38px;
+}
+
+.switch input {
+  height: 1px;
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.slider {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(147, 197, 253, 0.52);
+  border-radius: 999px;
+  cursor: pointer;
+  inset: 0;
+  position: absolute;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.slider::before {
+  background: #dbeafe;
+  border-radius: 50%;
+  content: "";
+  height: 14px;
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  transition: transform 140ms ease, background 140ms ease;
+  width: 14px;
+}
+
+.switch input:checked + .slider {
+  background: rgba(14, 165, 233, 0.34);
+  border-color: rgba(94, 234, 212, 0.82);
+}
+
+.switch input:checked + .slider::before {
+  background: #67e8f9;
+  transform: translateX(18px);
+}
+
+.switch input:focus-visible + .slider {
+  outline: 2px solid rgba(255, 255, 255, 0.82);
+  outline-offset: 2px;
+}
+
+.quick-links {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 5px;
+}
+
+button {
+  background: rgba(10, 22, 42, 0.88);
+  border: 1px solid rgba(147, 197, 253, 0.62);
+  border-radius: 5px;
+  color: #f8fbff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  min-height: 34px;
+}
+
+.logo-button {
+  align-items: center;
+  border-radius: 50%;
+  display: inline-flex;
+  height: 30px;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0;
+  width: 30px;
+}
+
+.logo-button svg {
+  display: block;
+  height: 19px;
+  width: 21px;
+}
+
+.logo-youtube {
+  background: #111827;
+  border-color: rgba(254, 202, 202, 0.78);
+}
+
+.logo-youtube rect {
+  fill: #ff0033;
+}
+
+.logo-youtube path {
+  fill: #ffffff;
+}
+
+.logo-samplette {
+  background: #111827;
+  border-color: rgba(255, 255, 255, 0.68);
+}
+
+.logo-samplette path {
+  fill: #ffffff;
+}
+
+.logo-radiooooo {
+  background: #102a53;
+  border-color: rgba(255, 255, 255, 0.82);
+}
+
+.logo-radiooooo svg {
+  height: 18px;
+  width: 24px;
+}
+
+.logo-radiooooo path:first-child {
+  fill: #facc15;
+}
+
+.logo-radiooooo path:not(:first-child),
+.logo-radiooooo circle {
+  fill: #06111f;
+}
+
+button:hover {
+  background: rgba(30, 58, 98, 0.95);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.hint:not(:empty) {
+  color: #bfdbfe;
+  margin-top: 6px;
+}

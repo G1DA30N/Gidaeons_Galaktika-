@@ -1,0 +1,110 @@
+{
+  "manifest_version": 3,
+  "name": "Gidaeon's Galaktika",
+  "version": "0.1.101",
+  "description": "Adds a galactic audio waveform directly below YouTube videos.",
+  "minimum_chrome_version": "105",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAspnLvqOiG20PKuNWROa1aaKlw+uypRu0LC9VeULw1C9+peaYDFKwySuKk2kZwk5eL7Exi9/b5Z+FnGHJWgF5E6DKBe7wDozV4z5D7PqZwIEodsMuAKnM/fpydMDa2zBLkKnX6jr9WB/TRAozNg1+xejK+gOWbNMvB/wCwZi/X7QC5smJ4c7jQycwSAmKEzV1ESH+FknEEoFtcp0LmCBjYb9NUh1A7BmnG4g7E3JhfpO7Tow/RZ8QsjR0b9m1Vn12QEX0L+BjnFHcJoOPm1p7ZynUVBiICfo/zSu8/BFy8O/RYKGfYg22S4coolx47E6VhUAfY8DjAdRil59sdyVqVQIDAQAB",
+  "icons": {
+    "16": "assets/galaktika-16.png",
+    "32": "assets/galaktika-32.png",
+    "48": "assets/galaktika-48.png",
+    "96": "assets/galaktika-96.png",
+    "128": "assets/galaktika-128.png"
+  },
+  "permissions": [
+    "cookies",
+    "nativeMessaging",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.youtube.com/*",
+    "*://cratedigrs.com/*",
+    "*://www.cratedigrs.com/*",
+    "*://sampleroulette.io/*",
+    "*://www.sampleroulette.io/*",
+    "*://samplette.io/*",
+    "*://www.samplette.io/*"
+  ],
+  "background": {
+    "service_worker": "src/background-chromium.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/galaktika-96.png"],
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://*.youtube-nocookie.com/*",
+        "*://app.radiooooo.com/*",
+        "*://cratedigrs.com/*",
+        "*://www.cratedigrs.com/*",
+        "*://sampleroulette.io/*",
+        "*://www.sampleroulette.io/*",
+        "*://samplette.io/*",
+        "*://www.samplette.io/*"
+      ]
+    },
+    {
+      "resources": ["src/page-clipboard-hook.js"],
+      "matches": [
+        "*://samplette.io/*",
+        "*://www.samplette.io/*"
+      ]
+    },
+    {
+      "resources": ["src/radiooooo-page-bridge.js"],
+      "matches": ["*://app.radiooooo.com/*"]
+    },
+    {
+      "resources": ["src/cratedigrs-page-bridge.js"],
+      "matches": ["*://cratedigrs.com/*", "*://www.cratedigrs.com/*"]
+    },
+    {
+      "resources": ["src/sampleroulette-page-bridge.js"],
+      "matches": ["*://sampleroulette.io/*", "*://www.sampleroulette.io/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*",
+        "*://m.youtube.com/*",
+        "*://youtube.com/*",
+        "*://www.youtube-nocookie.com/embed/*",
+        "*://app.radiooooo.com/*",
+        "*://cratedigrs.com/*",
+        "*://www.cratedigrs.com/*",
+        "*://sampleroulette.io/*",
+        "*://www.sampleroulette.io/*",
+        "*://samplette.io/*",
+        "*://www.samplette.io/*"
+      ],
+      "js": [
+        "src/browser-compat.js",
+        "src/content.js"
+      ],
+      "css": ["src/styles.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "*://samplette.io/*",
+        "*://www.samplette.io/*"
+      ],
+      "js": [
+        "src/browser-compat.js",
+        "src/site-url-bridge.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/galaktika-16.png",
+      "32": "assets/galaktika-32.png"
+    },
+    "default_popup": "popup/popup.html",
+    "default_title": "Gidaeon's Galaktika"
+  }
+}

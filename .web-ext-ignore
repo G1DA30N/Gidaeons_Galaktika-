@@ -1,0 +1,8 @@
+native/**
+dist/**
+dist-submission/**
+tools/**
+*.cmd
+README.md
+SUBMISSION_NOTES.md
+PRIVACY.md

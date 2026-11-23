@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="../assets/galaktika-48.png" alt="">
+      <div>
+        <h1>Gidaeon's Galaktika</h1>
+        <p class="status-row">
+          <span id="helper-light" class="status-light status-checking" aria-hidden="true"></span>
+          <span id="status">Checking helper...</span>
+        </p>
+      </div>
+    </div>
+    <nav class="quick-links" aria-label="Open supported sites">
+      <button id="open-youtube" class="logo-button logo-youtube" type="button" title="Open YouTube" aria-label="Open YouTube">
+        <svg viewBox="0 0 28 20" aria-hidden="true" focusable="false">
+          <rect x="1" y="1" width="26" height="18" rx="5"></rect>
+          <path d="M12 6.2 18 10l-6 3.8z"></path>
+        </svg>
+      </button>
+      <button id="open-samplette" class="logo-button logo-samplette" type="button" title="Open Samplette" aria-label="Open Samplette">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M7 9c2.7-3 7.5-3.8 11.4-2.2 1.8.7 3.5 2 4.9 3.6l-3.1 2.7c-2-2.4-5.2-3.5-8-2.2-1.3.6-1.9 1.4-1.7 2.2.2.9 1.3 1.4 3.3 1.7l3.4.5c4.2.6 6.6 2.5 7 5.4.4 3.6-2.8 6.4-7.6 6.7-4.5.3-8.5-1.5-11-4.9l3.2-2.6c2 2.6 4.8 3.8 7.6 3.4 2-.3 3.4-1.2 3.2-2.4-.1-.9-1.1-1.4-3.2-1.8l-3.4-.5c-4.5-.7-6.7-2.7-7-5.5-.2-1.5.2-2.8 1-4.1z"></path>
+        </svg>
+      </button>
+      <button id="open-radiooooo" class="logo-button logo-radiooooo" type="button" title="Open Radiooooo" aria-label="Open Radiooooo">
+        <svg viewBox="0 0 36 24" aria-hidden="true" focusable="false">
+          <path d="M2 4h15l17 5-17 5H2z"></path>
+          <path d="M6 8h4.2c1.8 0 3 .9 3 2.3 0 1-.6 1.8-1.5 2.1l2 3.1h-3.1L9 12.8H8.4v2.7H6zM8.4 10.1v1.1h1.5c.5 0 .8-.2.8-.6s-.3-.5-.8-.5z"></path>
+          <circle cx="18" cy="9" r="1.2"></circle>
+          <circle cx="22" cy="9" r="1.2"></circle>
+          <circle cx="26" cy="9" r="1.2"></circle>
+        </svg>
+      </button>
+    </nav>
+  </header>
+  <main>
+    <section class="power-control" aria-label="Galaktika power">
+      <span>Galaktika</span>
+      <label class="switch">
+        <input id="enabled-toggle" type="checkbox">
+        <span class="slider" aria-hidden="true"></span>
+      </label>
+    </section>
+  </main>
+  <p class="hint" id="hint"></p>
+  <script src="../src/browser-compat.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

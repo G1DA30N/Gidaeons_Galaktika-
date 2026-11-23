@@ -1,0 +1,14 @@
+# Local runtime and generated files
+.agents/
+.codex/
+dist/
+dist-submission/
+__pycache__/
+*.py[cod]
+native/.venv/
+native/.bgutil-provider/
+native/cache/
+native/downloads/
+native/config.json
+native/*.log
+native/native_host_launcher.exe
